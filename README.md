@@ -1,16 +1,81 @@
-# aialbamon
+# 📘 알바 검색 앱 기술 문서
 
-A new Flutter project.
+## 1. 앱 소개
 
-## Getting Started
+이 앱은 **구직자가 단기 아르바이트(알바) 정보를 쉽고 빠르게 탐색할 수
+있도록 설계된 모바일 애플리케이션**입니다.\
+사용자는 키워드를 입력해 원하는 알바를 검색할 수 있으며, 지역, 업종,
+정렬 조건 등을 활용해 맞춤형 결과를 볼 수 있습니다.\
+또한 공고를 북마크하거나, 키워드를 태그 형태로 선택해 보다 직관적인
+검색이 가능합니다.
 
-This project is a starting point for a Flutter application.
+------------------------------------------------------------------------
 
-A few resources to get you started if this is your first Flutter project:
+## 2. 주요 기능
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 🔍 검색
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+-   상단 검색창을 통해 알바 공고를 실시간 검색
+-   입력 시 즉각적으로 결과 반영
+
+### 📊 검색 결과
+
+-   총 검색 건수 표시
+-   리스트 형태로 공고 나열
+-   개별 공고 카드는 회사명, 직무 등의 정보를 보여주며 클릭 시 상세
+    페이지로 이동 예정
+
+### ⚙️ 정렬
+
+-   드롭다운 메뉴 제공
+-   최신순, 급여순, 거리순, 인기순으로 결과 정렬 가능
+
+### 🎯 필터
+
+-   하단 **필터 모달(BottomSheet)** 제공
+-   지역(강남구, 마포구, 송파구 등), 업종(카페, 편의점, 마트 등) 조건
+    선택 가능
+-   선택한 조건을 적용해 결과 갱신
+
+### 🏷️ 키워드 태그
+
+-   추천 키워드를 태그 버튼 형태로 제공
+-   선택/해제 가능
+-   초기화 버튼으로 전체 태그 해제
+
+### 📌 부가 기능
+
+-   알바 공고 북마크 저장
+-   결과 없음 시 안내 메시지 출력
+-   로딩 중일 때 프로그레스 인디케이터 표시
+-   지도 버튼 → 현재는 알림만 표시, 추후 지도 뷰 구현 예정
+
+------------------------------------------------------------------------
+
+## 3. 사용 기술
+
+-   **개발 언어 / 프레임워크**
+    -   Flutter (Dart)
+-   **상태 관리 및 라우팅**
+    -   GetX
+        -   `Obx` 로 UI 반응형 상태 업데이트
+        -   `Get.put()` 으로 컨트롤러 주입
+        -   `Get.back()`, `Get.snackbar()`, `Get.bottomSheet()` 활용
+-   **UI 구성**
+    -   Flutter Material 위젯 기반
+    -   `ListView.builder` 로 동적 리스트 렌더링
+    -   `DropdownButton`, `FilterChip`, `Wrap` 등으로 직관적인 필터 UI
+        구현
+-   **아키텍처 구성 요소**
+    -   `JobSearchPage` : UI 레이어
+    -   `JobSearchController` : 비즈니스 로직 & 상태 관리
+    -   `JobCard` : 개별 알바 공고 위젯
+
+------------------------------------------------------------------------
+
+## 4. 향후 확장 계획
+
+-   📍 **지도 뷰 제공** : 공고 위치를 지도에 시각화
+-   📄 **상세 페이지 구현** : 공고 상세 정보, 지원 기능 추가
+-   ⭐ **추천 시스템** : 사용자 선호 키워드/지역 기반 맞춤 공고 제공
+-   🔐 **회원 기능** : 로그인, 북마크 저장, 이력서 관리 등 확장
