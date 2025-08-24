@@ -100,12 +100,6 @@ class JobSearchPage extends StatelessWidget {
                         ))
                     .toList(),
               ),
-              IconButton(
-                icon: Icon(Icons.map, color: Colors.grey[600]),
-                onPressed: () {
-                  Get.snackbar('알림', '지도 뷰는 추후 구현 예정입니다.');
-                },
-              ),
             ],
           ),
         ));
